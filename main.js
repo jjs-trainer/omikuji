@@ -1,45 +1,27 @@
+/*jslint white: true, nomen: true, maxlen: 120, plusplus: true, browser: true, */
+/*global _:false, $:false, define:false, require:false, */
+
 window.onload = function() {
 
     'use strict';
 
-    var rand = Math.floor(Math.random() * 5 + 1),
+    var omikujiResult = [
+            {result: "大吉", message: "いいわー、すごいいいいわー。"},
+            {result: "中吉", message: "普通だねー。"},
+            {result: "小吉", message: "んー、ちょっとあれだねー。"},
+            {result: "凶",   message: "よくないねー。"},
+            {result: "大凶", message: "最悪だねー。"}
+        ][Math.floor(Math.random() * 5)],
+
         resultElement  = document.getElementById("result"),
-        messageElement = document.getElementById("message"),
-        result, message;
-
-    switch (rand) {
-    case 1:
-        result = "大吉";
-        message = "いいわー、すごいいいいわー。";
-        break;
-
-    case 2:
-        result = "中吉";
-        message = "普通だねー。";
-        break;
-
-    case 3:
-        result = "小吉";
-        message = "んー、ちょっとあれだねー。";
-        break;
-
-    case 4:
-        result = "凶";
-        message = "よくないねー。";
-        break;
-
-    case 5:
-        result = "大凶";
-        message = "最悪だねー。";
-        break;
-    }
+        messageElement = document.getElementById("message");
 
     if (typeof resultElement.textContent !== undefined) {
         // for firefox
-        resultElement.textContent  = result;
-        messageElement.textContent = message;
+        resultElement.textContent  = omikujiResult.result;
+        messageElement.textContent = omikujiResult.message;
     } else {
-        resultElement.innerText  = result;
-        messageElement.innerText = message;
+        resultElement.innerText  = omikujiResult.result;
+        messageElement.innerText = omikujiResult.message;
     }
 };
