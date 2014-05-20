@@ -1,4 +1,7 @@
 window.onload = function() {
+
+	'use strict';
+
 	var rand = Math.floor(Math.random() * 5 + 1),
 	    result, description;
 
@@ -28,6 +31,7 @@ window.onload = function() {
 	    description = "最悪だねー。";
 	    break;
 	}
+
 	document.getElementById("result").innerText = result;
 	document.getElementById("description").innerText = description;
 }
