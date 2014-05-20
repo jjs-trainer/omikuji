@@ -3,9 +3,11 @@ window.onload = function() {
     'use strict';
 
     var rand = Math.floor(Math.random() * 5 + 1),
+        resultElement  = document.getElementById("result"),
+        messageElement = document.getElementById("message"),
         result, message;
 
-    switch(rand) {
+    switch (rand) {
     case 1:
         result = "大吉";
         message = "いいわー、すごいいいいわー。";
@@ -32,6 +34,12 @@ window.onload = function() {
         break;
     }
 
-    document.getElementById("result").innerText = result;
-    document.getElementById("message").innerText = message;
-}
+    if (typeof resultElement.textContent !== undefined) {
+        // for firefox
+        resultElement.textContent  = result;
+        messageElement.textContent = message;
+    } else {
+        resultElement.innerText  = result;
+        messageElement.innerText = message;
+    }
+};
